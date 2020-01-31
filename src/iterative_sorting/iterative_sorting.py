@@ -1,3 +1,4 @@
+from collections import Counter
 # TO-DO: Complete the selection_sort() function below 
 def selection_sort( arr ):
     # loop through n-1 elements
@@ -30,6 +31,11 @@ def bubble_sort( arr ):
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
+    if all(i >= 0 for i in arr):
+        unique = list(range(max(arr, default=0)+1))
+        dict_a = {unique[i]: arr.count(unique[i]) for i in unique}
+        output = [x for t in dict_a for x in [t]*dict_a[t]]
+    else:
+        output = 'Error, negative numbers not allowed in Count Sort'
 
-    
-    return arr
+    return output
